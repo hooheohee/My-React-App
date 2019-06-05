@@ -1,10 +1,8 @@
 ## About the project
 
-This is a simple Google Doc Clone project.
+This is a simple Google Doc Clone project. Try it here: [My Fake Goole Doc](http://fakedoc.herokuapp.com).  
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).  
-
-Try it here: [My Fake Goole Doc](http://fakedoc.herokuapp.com)  
 
 This project was built using [Slate](https://github.com/ianstormtaylor/slate). Also, thanks to [Ben Awad](https://www.youtube.com/user/99baddawg) for his awesome tutorials. 
 
