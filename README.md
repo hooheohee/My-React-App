@@ -13,7 +13,7 @@ This project was built using [Slate](https://github.com/ianstormtaylor/slate). A
 
 ### Run Client
 
-1. Install dependencies for client: `yarn`.
-2. Run `yarn start`.
+1. Install dependencies for client: In the root directory, run `yarn`.
+2. Then, run `yarn start`.
 
 
