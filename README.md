@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Run Server
 
-1. Install dependencies for server: `cd server/` and run `npm i`.  
+1. Install dependencies for server: `cd server/` and run `yarn`.  
 2. In the same directory, run `node src/index.js`.
 
 # Run Client
