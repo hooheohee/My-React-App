@@ -13,4 +13,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### About the project
 
-This project was created using [Slate](https://github.com/ianstormtaylor/slate). Thanks to [Ben Awad](https://www.youtube.com/playlist?list=PLN3n1USn4xllb05dQVmRbVtGP2aM4seVq) for his awesome tutorials.
+This project was created using [Slate](https://github.com/ianstormtaylor/slate). Also, thanks to [Ben Awad](https://www.youtube.com/user/99baddawg) for his awesome tutorials.
