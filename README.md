@@ -9,3 +9,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 1. Install dependencies for client: `yarn`.
 2. Run `yarn start`.
+
+
+### About the project
+
+This project was created using [Slate](https://github.com/ianstormtaylor/slate). Thanks to [Ben Awad](https://www.youtube.com/playlist?list=PLN3n1USn4xllb05dQVmRbVtGP2aM4seVq) for his awesome tutorials.
