@@ -18,7 +18,7 @@ export const SyncingEditor: React.FC<Props> = ({ groupId }) => {
   const remote = useRef(false);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/groups/${groupId}`).then(x =>
+    fetch(`${serverURL}/groups/${groupId}`).then(x =>
       x.json().then(data => {
         setValue(Value.fromJSON(data));
       })
