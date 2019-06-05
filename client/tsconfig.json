@@ -21,5 +21,8 @@
   },
   "include": [
     "src"
+  ],
+  "typeRoots": [
+    "./../client/node_modules/@types"
   ]
 }
