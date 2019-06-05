@@ -43,6 +43,6 @@ app.get("/groups/:id", (req, res) => {
   res.send(groupData[id]);
 });
 
-http.listen(4000, function() {
+http.listen(process.env.PORT || 4000, function() {
   console.log("My-Google-Doc Server is listening on localhost:4000");
 });
