@@ -1,28 +1,45 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Editor } from "slate-react";
-import Mitt from "mitt";
 import { initialValue } from "./slateInitialValue";
-import { Operation } from "slate";
+import { Operation, Value } from "slate";
+import io from "socket.io-client";
 
-interface Props {}
+const serverURL = "http://localhost:4000";
+const socket = io(serverURL);
 
-const emitter = new Mitt();
+interface Props {
+  groupId: string;
+}
 
-export const SyncingEditor: React.FC<Props> = () => {
+export const SyncingEditor: React.FC<Props> = ({ groupId }) => {
   const [value, setValue] = useState(initialValue);
   const id = useRef(`${Date.now()}`);
   const editor = useRef<Editor | null>(null);
   const remote = useRef(false);
 
   useEffect(() => {
-    (emitter as any).on("*", (type: string, ops: Operation[]) => {
-      if (id.current !== type) {
-        remote.current = true;
-        ops.forEach(op => editor.current!.applyOperation(op));
-        remote.current = false;
+    fetch(`http://localhost:4000/groups/${groupId}`).then(x =>
+      x.json().then(data => {
+        setValue(Value.fromJSON(data));
+      })
+    );
+
+    const eventName = `new-remote-operations-${groupId}`;
+
+    socket.on(
+      eventName,
+      ({ editorId, ops }: { editorId: string; ops: Operation[] }) => {
+        if (id.current !== editorId) {
+          remote.current = true;
+          ops.forEach((op: any) => editor.current!.applyOperation(op));
+          remote.current = false;
+        }
       }
-    });
-  }, []);
+    );
+    return () => {
+      socket.off(eventName);
+    };
+  }, [groupId]);
 
   return (
     <Editor
@@ -51,7 +68,12 @@ export const SyncingEditor: React.FC<Props> = () => {
           .map((o: any) => ({ ...o, data: { source: "one" } }));
 
         if (ops.length && !remote.current) {
-          emitter.emit(id.current, ops);
+          socket.emit("new-operations", {
+            editorId: id.current,
+            ops,
+            value: opts.value.toJSON(),
+            groupId
+          });
         }
       }}
     />

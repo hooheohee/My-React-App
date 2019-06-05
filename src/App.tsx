@@ -1,16 +1,19 @@
 import React from "react";
-import { SyncingEditor } from "./SyncingEditor";
+import { BrowserRouter, Route, Redirect } from "react-router-dom";
+import { GroupEditor } from "./GroupEditor";
 
-// Define our app...
 const App = () => {
   return (
-    <div>
-      <SyncingEditor />
-      <br />
-      <SyncingEditor />
-      <br />
-      <SyncingEditor />
-    </div>
+    <BrowserRouter>
+      <Route
+        path="/"
+        exact
+        render={() => {
+          return <Redirect to={`/group/${Date.now()}`} />;
+        }}
+      />
+      <Route path="/group/:id" component={GroupEditor} />
+    </BrowserRouter>
   );
 };
 
