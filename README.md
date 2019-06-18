@@ -1,6 +1,6 @@
 ## About the project
 
-This is a simple Google Doc Clone project. Try it here: [My Fake Goole Doc](http://fakedoc.herokuapp.com).  
+This is a simple Google Doc Clone project. Try it here: [My Goole Doc Clone](http://fakedoc.herokuapp.com).  
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).  
 
